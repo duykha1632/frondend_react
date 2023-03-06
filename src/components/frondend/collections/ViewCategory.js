@@ -8,15 +8,23 @@ function ViewCategory()
     const [loading, setLoading] = useState(true);
     const [category, setCategory] = useState([]);
     useEffect(() => {
+        let isMountered = true;
     
         axios.get(`/api/getCategory`).then(res=>{
-            if(res.data.status === 200)
+            if(isMountered)
             {
-                //console.log(res.data.category);
-                setCategory(res.data.category);
-                setLoading(false);
+                if(res.data.status === 200)
+                {
+                    setCategory(res.data.category);
+                    setLoading(false);
+                }
+
             }
+          
         });
+        return() => {
+            isMountered =false;
+        }
     });
 
     if(loading)
@@ -27,7 +35,7 @@ function ViewCategory()
     {
         var showCategoryList = '';
         showCategoryList = category.map((item, idx)=>{
-            console.log(item);
+
             return(
                 <div className="col-md-4"key={idx}>
                 <div className="card">
