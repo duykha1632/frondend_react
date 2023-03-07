@@ -64,7 +64,7 @@ function ProductDetail(props)
 
         axios.post(`/api/add-to-cart`,data).then(res=>{
             if(res.data.status === 201){
-                swal("Success",res.data.message,"succes");
+                swal("Success",res.data.message,"success");
             }else if(res.data.status === 409)
             {
                 swal("Warning",res.data.message,"warning");
@@ -96,7 +96,7 @@ function ProductDetail(props)
                         <div className="col-md-3 mt-3">
                             <div className="input-group">
                                 <button type="button" onClick={handleDecrement} className="input-group-text">-</button>
-                                <input type="text" className="form-control text-center" />
+                                
                                 <div className="form-control text-center">{quantity}</div>
                                 <button type="button" onClick={handleIncrement} className="input-group-text">+</button>
                             </div>
