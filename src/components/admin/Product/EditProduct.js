@@ -67,7 +67,7 @@ const EditProduct = (props) => {
         data.append('color', productUpdate.color)
         data.append('quantity', productUpdate.quantity)
 
-        axios.post(`/api/update_product/${product_id}`,data)
+        axios.put(`/api/update_product/${product_id}`,data)
             .then(res => {
                 if(res.data.status === 200){
                     swal("success", res.data.message,'success')  

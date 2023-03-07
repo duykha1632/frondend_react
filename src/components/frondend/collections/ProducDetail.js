@@ -22,6 +22,7 @@ function ProductDetail(props)
             {
                 if(res.data.status === 200)
                 {
+                    // console.log(product);
                     setProduct(res.data.product);
                     
                     setLoading(false);
@@ -47,7 +48,7 @@ function ProductDetail(props)
         
     }
     const handleIncrement = () => {
-        if(quantity <10){
+        if(quantity <9){
             setQuantity(prevCount => prevCount + 1);
         }
         
@@ -120,8 +121,7 @@ function ProductDetail(props)
         <div>
             <div className="py-3 bg-warning">
                 <div className="container">
-                    <h6>Collections / {product.category.className} / {product.name}</h6>
-
+                    <h4>Collections / {product.category.name} / {product.name}</h4>
                 </div>
 
             </div> 
@@ -139,8 +139,8 @@ function ProductDetail(props)
                             </h4>
                             <p>{product.description}</p>
                             <h4 className="mb-1">
-                                Rs:{product.seller_price}
-                                <s className="ms-2">Rs:{product.origin_price}</s>
+                                Sale price:{product.seller_price}
+                                <s className="ms-2">Origin price:{product.origin_price}</s>
                             </h4>
                             <div>
                                 {avail_stock}
