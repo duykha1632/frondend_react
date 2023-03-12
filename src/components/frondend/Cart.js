@@ -25,7 +25,7 @@ function Cart()
             {
                 if(res.data.status === 200)
                 {
-                    // console.log(product);
+                    console.log(res.data.cart);
                     setCart(res.data.cart);
                     
                     setLoading(false);
@@ -97,7 +97,8 @@ function Cart()
     var cart_HTML = '';
     if(cart.length > 0)
     {
-        cart_HTML = <div className="table-responsive">
+        cart_HTML = <div>
+        <div className="table-responsive">
         <table className="table table-bordered">
             <thead>
                 <tr>
@@ -140,6 +141,23 @@ function Cart()
         </table>
 
     </div>
+    <div className="row">
+         <div className="col-md-8"></div>
+                        <div className="col-md-4">
+                        <div className="card card-body mt-3">
+                            <h4>Sub Total:
+                                <span className="float-end">{totalCartPrice}</span>
+                            </h4>
+                            <h4>Grand Total:
+                                <span className="float-end">{totalCartPrice}</span>
+                            </h4>
+                            <hr />
+                            <Link to="/checkout" className="btn btn-primary">Checkout</Link>
+                        </div>
+
+                        </div>
+    </div>
+    </div>
     }
 
     else
@@ -170,20 +188,7 @@ function Cart()
                         {cart_HTML}
 
                         </div>
-                        <div className="col-md-8"></div>
-                        <div className="col-md-4">
-                        <div className="card card-body mt-3">
-                            <h4>Sub Total:
-                                <span className="float-end">{totalCartPrice}</span>
-                            </h4>
-                            <h4>Grand Total:
-                                <span className="float-end">{totalCartPrice}</span>
-                            </h4>
-                            <hr />
-                            <Link to="/checkout" className="btn btn-primary">Checkout</Link>
-                        </div>
-
-                        </div>
+                       
 
                     </div>
                 </div>

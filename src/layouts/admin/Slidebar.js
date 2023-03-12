@@ -24,6 +24,10 @@ const Slidebar = () => {
                         <div className="sb-nav-link-icon"><i className="fa-brands fa-dropbox"></i></div>
                         Product
                     </Link>
+                    <Link  to="/admin/orders" className="nav-link" >
+                        <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                        Orders
+                    </Link>
                     
                 </div>
             </div>
